@@ -1,0 +1,8 @@
+☐ the entire page should be full of grpah nodes and the page should not be scrollable
+    ✔ Each square box should be a node of the grpah no node has a connection to each other @done (6/18/2022, 4:01:12 PM)
+        ☐ The useWindow hook can be used to calculate the height and width 
+            ☐ which further can be used to calculate the number of rows and columns hence making it dynamic to screen size 
+            ✔ make the page non scrollable @done (6/18/2022, 4:01:15 PM)
+✔ Implement the functionality to draw wals on clicking and dragging @done (6/18/2022, 5:09:43 PM)
+
+
