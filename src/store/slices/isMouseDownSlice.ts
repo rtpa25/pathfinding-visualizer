@@ -1,12 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 // Define a type for the slice state
-interface isMouseDownState {
+interface IsMouseDownState {
 	value: boolean;
 }
 
 // Define the initial state using that type
-const initialState: isMouseDownState = {
+const initialState: IsMouseDownState = {
 	value: false,
 };
 
@@ -14,7 +14,7 @@ export const isMouseDownSlice = createSlice({
 	name: "isMouseDown",
 	initialState: initialState,
 	reducers: {
-		toggleIsMouseDown: (state: isMouseDownState) => {
+		toggleIsMouseDown: (state: IsMouseDownState) => {
 			state.value = !state.value;
 		},
 	},

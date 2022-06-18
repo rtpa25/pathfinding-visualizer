@@ -1,26 +1,17 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useAppDispatch, useAppSelector } from "../hooks/redux";
+import { generateNodes } from "../store/slices/nodeSlice";
 import { GraphNode } from "../types";
 import Node from "./Node/Node";
 import "./PathFindingVisualizer.css";
 
 const PathFindingVisualizer = () => {
-	const [nodes, setNodes] = useState<GraphNode[][]>([]);
+	const nodes = useAppSelector((state) => state.nodes.value);
+	const dispatch = useAppDispatch();
 
 	useEffect(() => {
-		const newNodes: GraphNode[][] = [];
-		for (let row = 0; row < 25; row++) {
-			const currentRow: GraphNode[] = [];
-			for (let col = 0; col < 50; col++) {
-				const node: GraphNode = {
-					isStart: col === 5 && row === 10,
-					isEnd: col === 45 && row === 15,
-				};
-				currentRow.push(node);
-			}
-			newNodes.push(currentRow);
-		}
-		setNodes(newNodes);
-	}, []);
+		dispatch(generateNodes());
+	}, [dispatch]);
 
 	return (
 		<>
@@ -35,7 +26,9 @@ const PathFindingVisualizer = () => {
 									<Node
 										key={nodeIdx}
 										isStart={isStart}
-										isEnd={isEnd}></Node>
+										isEnd={isEnd}
+										row={rowIdx}
+										col={nodeIdx}></Node>
 								);
 							})}
 						</div>

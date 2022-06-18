@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import isMouseDownReducers from "./slices/isMouseDownSlice";
+import nodeReducers from "./slices/nodeSlice";
 
 export const store = configureStore({
 	reducer: {
 		isMouseDown: isMouseDownReducers,
+		nodes: nodeReducers,
 	},
 });
 
